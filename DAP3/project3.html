@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>project3</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">DAP3 研究和总结数据</h1>
+
+<div><pre><code class="language-none">##  [1] &quot;X&quot;                    &quot;fixed.acidity&quot;        &quot;volatile.acidity&quot;    
+##  [4] &quot;citric.acid&quot;          &quot;residual.sugar&quot;       &quot;chlorides&quot;           
+##  [7] &quot;free.sulfur.dioxide&quot;  &quot;total.sulfur.dioxide&quot; &quot;density&quot;             
+## [10] &quot;pH&quot;                   &quot;sulphates&quot;            &quot;alcohol&quot;             
+## [13] &quot;quality&quot;</code></pre></div>
+
+<div><pre><code class="language-none">##        X          fixed.acidity   volatile.acidity  citric.acid   
+##  Min.   :   1.0   Min.   : 4.60   Min.   :0.1200   Min.   :0.000  
+##  1st Qu.: 400.5   1st Qu.: 7.10   1st Qu.:0.3900   1st Qu.:0.090  
+##  Median : 800.0   Median : 7.90   Median :0.5200   Median :0.260  
+##  Mean   : 800.0   Mean   : 8.32   Mean   :0.5278   Mean   :0.271  
+##  3rd Qu.:1199.5   3rd Qu.: 9.20   3rd Qu.:0.6400   3rd Qu.:0.420  
+##  Max.   :1599.0   Max.   :15.90   Max.   :1.5800   Max.   :1.000  
+##  residual.sugar     chlorides       free.sulfur.dioxide
+##  Min.   : 0.900   Min.   :0.01200   Min.   : 1.00      
+##  1st Qu.: 1.900   1st Qu.:0.07000   1st Qu.: 7.00      
+##  Median : 2.200   Median :0.07900   Median :14.00      
+##  Mean   : 2.539   Mean   :0.08747   Mean   :15.87      
+##  3rd Qu.: 2.600   3rd Qu.:0.09000   3rd Qu.:21.00      
+##  Max.   :15.500   Max.   :0.61100   Max.   :72.00      
+##  total.sulfur.dioxide    density             pH          sulphates     
+##  Min.   :  6.00       Min.   :0.9901   Min.   :2.740   Min.   :0.3300  
+##  1st Qu.: 22.00       1st Qu.:0.9956   1st Qu.:3.210   1st Qu.:0.5500  
+##  Median : 38.00       Median :0.9968   Median :3.310   Median :0.6200  
+##  Mean   : 46.47       Mean   :0.9967   Mean   :3.311   Mean   :0.6581  
+##  3rd Qu.: 62.00       3rd Qu.:0.9978   3rd Qu.:3.400   3rd Qu.:0.7300  
+##  Max.   :289.00       Max.   :1.0037   Max.   :4.010   Max.   :2.0000  
+##     alcohol         quality     
+##  Min.   : 8.40   Min.   :3.000  
+##  1st Qu.: 9.50   1st Qu.:5.000  
+##  Median :10.20   Median :6.000  
+##  Mean   :10.42   Mean   :5.636  
+##  3rd Qu.:11.10   3rd Qu.:6.000  
+##  Max.   :14.90   Max.   :8.000</code></pre></div>
+
+<h1 id="toc_1">单变量绘图选择</h1>
+
+<h2 id="toc_2">固定酸度分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 8 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots01-1.png" alt="plot of chunk Univariate_Plots01">
+note: 固定酸度多集中在 7-8，单峰，最高值出现在7-7.5 之间</p>
+
+<h2 id="toc_3">挥发性酸度分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 21 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots02-1.png" alt="plot of chunk Univariate_Plots02">
+note: 挥发性酸度集中在 0.4-0.6，近似正态分布</p>
+
+<h2 id="toc_4">柠檬酸分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 1 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots03-1.png" alt="plot of chunk Univariate_Plots03">
+note: 柠檬酸度多集中在 0-0.7 之间，无明显分布规律</p>
+
+<h2 id="toc_5">残糖的分布规律</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 31 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots04-1.png" alt="plot of chunk Univariate_Plots04">
+note：残糖含量有明显长尾，残糖数据集中分布在 1.5-3 之间，单峰，数量最多出现在残糖含量为 2 处</p>
+
+<h2 id="toc_6">氯化物含量分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 41 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots05-1.png" alt="plot of chunk Univariate_Plots05"></p>
+
+<p>note：氯化物含量有明显长尾，氯化物含量多集中在 0.06-0.1 之间，单峰，峰值出现在氯化物含量为 0.08 处</p>
+
+<h2 id="toc_7">游离二氧化硫分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 24 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots06-1.png" alt="plot of chunk Univariate_Plots06">
+note：游离二氧化硫大于 40 为少数，数据多分布在 3-18 之间，峰值出现在游离二氧化硫浓度为 6 处</p>
+
+<h2 id="toc_8">总二氧化硫浓度分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 9 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots07-1.png" alt="plot of chunk Univariate_Plots07"></p>
+
+<div><pre><code class="language-none">## Warning: Removed 1326 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots08-1.png" alt="plot of chunk Univariate_Plots08"></p>
+
+<p>note：总二氧化硫浓度最低为 6，最高为 289。超过 150 的占极少数，峰值出现在总二氧化硫浓度为 28 处</p>
+
+<h2 id="toc_9">结合二氧化硫含量分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots09-1.png" alt="plot of chunk Univariate_Plots09"></p>
+
+<p>note：结合二氧化硫含量有明显长尾，大多分布在 125 以下，集中分布在 5-40 之间。</p>
+
+<h2 id="toc_10">密度分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots10-1.png" alt="plot of chunk Univariate_Plots10">
+note: 密度多集中在0.994-0.999 之间，单峰，近似正态分布</p>
+
+<h2 id="toc_11">pH 分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots11-1.png" alt="plot of chunk Univariate_Plots11">
+note: pH 值多集中在 3-3.5 之间，单峰，近似正太分布</p>
+
+<div><pre><code class="language-none">## Warning: Removed 12 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots12-1.png" alt="plot of chunk Univariate_Plots12"></p>
+
+<h2 id="toc_12">硫酸盐含量分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots13-1.png" alt="plot of chunk Univariate_Plots13"></p>
+
+<div><pre><code class="language-none">## Warning: Removed 404 rows containing non-finite values (stat_bin).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots14-1.png" alt="plot of chunk Univariate_Plots14"></p>
+
+<p>note: 硫酸盐含量分布明显长尾，极少高于 0.93。单峰，近似正态分布。大多集中在 0.53-0.63 之间</p>
+
+<h2 id="toc_13">酒精含量分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots15-1.png" alt="plot of chunk Univariate_Plots15">
+note: 酒精含量最低为 8.4，最高 14.9。大多分布在 9.2-11 之间，数量最多的出现在酒精含量为 9.5 处</p>
+
+<h2 id="toc_14">质量的分布</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre></div>
+
+<p><img src="figure/Univariate_Plots16-1.png" alt="plot of chunk Univariate_Plots16">
+note: 质量多集中在 5-6。</p>
+
+<h1 id="toc_15">单变量分析</h1>
+
+<h3 id="toc_16">你的数据集结构是什么？</h3>
+
+<p>数据集是关于红葡萄酒质量的，包括 13 列数据，除了第一列为序号，其余列数据意义如下：</p>
+
+<p>1 fixed.acidity 固定酸度（酒石酸-g/dm^3）
+2 volatile.acidity 挥发性酸度（乙酸-g/dm^3）
+3 citric.acid 柠檬酸（g/dm^3）
+4 residual.sugar 残糖（g/dm^3）
+5 chlorides 氯化物（氯化钠-g/dm^3）
+6 free.sulfur.dioxide 游离二氧化硫（mg/dm^3）
+7 total.sulfur.dioxide 二氧化硫总量（mg/dm^3）
+8 density 密度（g/cm^3）
+9 pH
+10 sulphates 硫酸盐（硫酸钾-g/dm^3）
+11 alcohol 酒精（体积％）输出变量（基于传感数据）
+12 quality 质量</p>
+
+<h3 id="toc_17">你的数据集内感兴趣的主要特性有哪些？</h3>
+
+<p>红葡萄酒的质量</p>
+
+<h3 id="toc_18">你认为数据集内哪些其他特征可以帮助你探索兴趣特点？</h3>
+
+<ol>
+<li><p>酸和糖等物质含量对红葡萄酒质量的影响</p></li>
+</ol>
+
+<ul>
+<li>�挥发性酸度：葡萄酒中醋酸的含量过高会导致令人不快的醋味</li>
+<li>柠檬酸：少量发现，柠檬酸可以为葡萄酒增添“新鲜感”和风味</li>
+<li><p>残糖：发酵停止后剩余的糖量，很少能找到低于1克/升的葡萄酒，超过45克/升的葡萄酒被认为是甜的</p></li>
+</ul>
+
+<ol>
+<li>红葡萄酒密度对质量影响</li>
+</ol>
+
+<p>红葡萄酒密度和酒精含量、糖含量有关</p>
+
+<ol>
+<li><p>pH 值对质量影响</p></li>
+</ol>
+
+<ul>
+<li><p>pH：描述葡萄酒的酸度或碱度如何从0（非常酸性）到14（非常碱性）;大多数葡萄酒的pH值在3-4之间</p></li>
+</ul>
+
+<ol>
+<li><p>二氧化硫对质量影响</p></li>
+</ol>
+
+<ul>
+<li>游离二氧化硫：游离形式的SO2在分子SO2（作为溶解气体）和亚硫酸氢根离子之间存在平衡;它可以防止微生物的生长和葡萄酒的氧化</li>
+<li>总二氧化硫：游离和结合形式的SO 2的量;在低浓度下，SO2在葡萄酒中几乎检测不到，但在游离SO2浓度超过50ppm时，SO2在葡萄酒的味道和味道中变得明显</li>
+<li>结合二氧化硫：总二氧化硫 - 游离二氧化硫</li>
+<li>硫酸盐：一种葡萄酒添加剂，可以产生二氧化硫气体（SO2）水平，可以作为抗菌剂和抗氧化剂</li>
+</ul>
+
+<h3 id="toc_19">根据数据集内已有变量，你是否创建了任何新变量？</h3>
+
+<p>新创建变量“结合二氧化硫含量”，即用“二氧化硫总量”减去“游离二氧化硫含量”</p>
+
+<h3 id="toc_20">在已经探究的特性中，是否存在任何异常分布？你是否对数据进行一些操作，如清洁、调整或改变数据的形式？如果是，你为什么会这样做？</h3>
+
+<p>未发现异常分布，没有对数据进行清洗、调整或改变数据的形式。</p>
+
+<h1 id="toc_21">双变量绘图选择</h1>
+
+<h2 id="toc_22">固定酸和质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots01-1.png" alt="plot of chunk Bivariate_Plots01"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$fixed.acidity and pf$quality
+## t = 4.996, df = 1597, p-value = 6.496e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.07548957 0.17202667
+## sample estimates:
+##       cor 
+## 0.1240516</code></pre></div>
+
+<p>note：固定酸和质量相关系数为 0.124，有一定相关性，固定酸度越高，质量越高</p>
+
+<h2 id="toc_23">挥发性酸度和质量的关系</h2>
+
+<p>挥发性酸度：葡萄酒中醋酸的含量过高会导致令人不快的醋味</p>
+
+<p><img src="figure/Bivariate_Plots03-1.png" alt="plot of chunk Bivariate_Plots03"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$volatile.acidity and pf$quality
+## t = -16.954, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.4313210 -0.3482032
+## sample estimates:
+##        cor 
+## -0.3905578</code></pre></div>
+
+<p>note: 从挥发性酸度和质量的散点分布图相关系数 -0.39 可知，挥发性酸度和质量有相关性，挥发性酸度越低，质量越高。</p>
+
+<h2 id="toc_24">柠檬酸度和质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots05-1.png" alt="plot of chunk Bivariate_Plots05"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$citric.acid and pf$quality
+## t = 9.2875, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.1793415 0.2723711
+## sample estimates:
+##       cor 
+## 0.2263725</code></pre></div>
+
+<p>note:柠檬酸度和质量相关系数为 0.226，有相关性，柠檬酸度越高，质量越高。</p>
+
+<h2 id="toc_25">残糖和红葡萄酒质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots07-1.png" alt="plot of chunk Bivariate_Plots07"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$residual.sugar and pf$quality
+## t = 0.5488, df = 1597, p-value = 0.5832
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.03531327  0.06271056
+## sample estimates:
+##        cor 
+## 0.01373164</code></pre></div>
+
+<p>note：残糖对红酒质量相关系数为 0.0137，影响不明显</p>
+
+<h2 id="toc_26">氯化物和质量关系</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 41 rows containing missing values (geom_point).</code></pre></div>
+
+<p><img src="figure/Bivariate_Plots09-1.png" alt="plot of chunk Bivariate_Plots09"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$chlorides and pf$quality
+## t = -5.1948, df = 1597, p-value = 2.313e-07
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.17681041 -0.08039344
+## sample estimates:
+##        cor 
+## -0.1289066</code></pre></div>
+
+<p>note: 氯化物和质量的相关系数为 -0.129，有一定相关性，氯化物含量越低，质量越高</p>
+
+<h2 id="toc_27">酒精和红酒质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots11-1.png" alt="plot of chunk Bivariate_Plots11"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$alcohol and pf$quality
+## t = 21.639, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4373540 0.5132081
+## sample estimates:
+##       cor 
+## 0.4761663</code></pre></div>
+
+<p>note：酒精和红酒质量相关系数为 0.476，为强相关，酒精度数越高，质量越高</p>
+
+<h2 id="toc_28">密度和质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots13-1.png" alt="plot of chunk Bivariate_Plots13"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$density and pf$quality
+## t = -7.0997, df = 1597, p-value = 1.875e-12
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.2220365 -0.1269870
+## sample estimates:
+##        cor 
+## -0.1749192</code></pre></div>
+
+<p>note：密度和质量相关系数为 -0.175，有相关性，密度越低，质量越高</p>
+
+<h2 id="toc_29">酒精含量和密度关系</h2>
+
+<div><pre><code class="language-none">## Warning: Removed 32 rows containing non-finite values (stat_smooth).</code></pre></div>
+
+<div><pre><code class="language-none">## Warning: Removed 32 rows containing missing values (geom_point).</code></pre></div>
+
+<p><img src="figure/Bivariate_Plots15-1.png" alt="plot of chunk Bivariate_Plots15"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$alcohol and pf$density
+## t = -22.838, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.5322547 -0.4583061
+## sample estimates:
+##        cor 
+## -0.4961798</code></pre></div>
+
+<p>note：酒精和密度相关系数为 -0.49，为强相关，酒精浓度越低，密度越高</p>
+
+<h2 id="toc_30">pH 和质量的关系</h2>
+
+<p><img src="figure/Bivariate_Plots17-1.png" alt="plot of chunk Bivariate_Plots17"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$pH and pf$quality
+## t = -2.3109, df = 1597, p-value = 0.02096
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.106451268 -0.008734972
+## sample estimates:
+##         cor 
+## -0.05773139</code></pre></div>
+
+<p>note：pH 和质量相关系数为 -0.058，相关性不强</p>
+
+<h2 id="toc_31">pH 和不同酸、盐、糖的关系</h2>
+
+<p><img src="figure/Bivariate_Plots19-1.png" alt="plot of chunk Bivariate_Plots19">
+note: 从六个散点图来看，pH 值与固定酸和柠檬酸的关系更明显，固定酸和柠檬酸含量越高，pH 值越低</p>
+
+<h3 id="toc_32">pH与固定酸、柠檬酸的相关性</h3>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$fixed.acidity and pf$pH
+## t = -37.366, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.7082857 -0.6559174
+## sample estimates:
+##        cor 
+## -0.6829782</code></pre></div>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$citric.acid and pf$pH
+## t = -25.767, df = 1597, p-value &lt; 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.5756337 -0.5063336
+## sample estimates:
+##        cor 
+## -0.5419041</code></pre></div>
+
+<p>note：固定酸和pH相关系数为 -0.68，柠檬酸和 pH 相关系数为 -0.54，均为强相关，即这两种酸度越高，pH 越低</p>
+
+<h2 id="toc_33">游离二氧化硫、结合二氧化硫、二氧化硫总量和质量关系</h2>
+
+<p><img src="figure/Bivariate_Plots22-1.png" alt="plot of chunk Bivariate_Plots22"></p>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$free.sulfur.dioxide and pf$quality
+## t = -2.0269, df = 1597, p-value = 0.04283
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.099430290 -0.001638987
+## sample estimates:
+##         cor 
+## -0.05065606</code></pre></div>
+
+<div><pre><code class="language-none">## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  pf$total.sulfur.dioxide and pf$quality
+## t = -7.5271, df = 1597, p-value = 8.622e-14
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.2320162 -0.1373252
+## sample estimates:
+##        cor 
+## -0.1851003</code></pre></div>
+
+<p>note：游离二氧化硫和质量无明显关系，二氧化硫总量和质量呈弱相关，相关系数为 -0.185</p>
+
+<h1 id="toc_34">双变量分析</h1>
+
+<h3 id="toc_35">探讨你在这部分探究中观察到的一些关系。这些感兴趣的特性与数据集内其他特性有什么区别？</h3>
+
+<p>通过分析两个变量之间的关系，得到了一些有意思的结论：</p>
+
+<h4 id="toc_36">01 与质量有强关系的有机质（酸、盐）变量</h4>
+
+<ol>
+<li>从挥发性酸度和质量的散点分布图相关系数 -0.39 可知，挥发性酸度和质量有中等相关性，挥发性酸度越低，质量越高。</li>
+<li>柠檬酸度和质量相关系数为 0.226，有弱相关性，柠檬酸度越高，质量越高。</li>
+<li>固定酸和质量相关系数为 0.124，有弱相关性，固定酸度越高，质量越高</li>
+<li>氯化物和质量的相关系数为 -0.129，有弱相关性，氯化物含量越低，质量越高</li>
+<li>二氧化硫总量和质量相关系数为 -0.185，有弱相关，二氧化硫总量越低，质量越高</li>
+</ol>
+
+<h4 id="toc_37">02 密度和质量的关系；酒精和密度的关系</h4>
+
+<ol>
+<li>密度和质量相关系数为 -0.175，有弱相关性，密度越低，质量越高</li>
+<li>酒精和红酒质量相关系数为 0.476，为中等相关，酒精度数越高，质量越高</li>
+<li>酒精和密度相关系数为 -0.49，为中等相关，酒精浓度越低，密度越高</li>
+</ol>
+
+<p>密度、质量、酒精两两之间有强相关，在下一步多变量分析中，这三个变量关系的分析将作为重点。</p>
+
+<h4 id="toc_38">03 与质量相关性弱的变量</h4>
+
+<ol>
+<li>残糖对红酒质量相关系数为 0.0137，没有相关性</li>
+<li>游离二氧化硫和质量相关系数为 -0.051，没有相关性</li>
+<li>pH 和质量相关系数为 -0.058，没有相关性</li>
+</ol>
+
+<h4 id="toc_39">04 酸、盐、糖与 pH 值的关系</h4>
+
+<p>在探究固定酸度、挥发性酸、柠檬酸、残糖、氯化物、硫酸盐与 pH 的关系时发现，pH 值与固定酸和柠檬酸的关系更明显，固定酸和柠檬酸含量越高，pH 值越低，固定酸和pH相关系数为 -0.68，柠檬酸和 pH 相关系数为 -0.54，均为强相关</p>
+
+<h3 id="toc_40">你是否观察到主要特性与其他特性之间的有趣关系？</h3>
+
+<p>这道题不是和上一道重复么....按照与质量相关性从高到低的顺序排列，变量依次为酒精、挥发性酸度、柠檬酸度、密度、氯化物、固定酸</p>
+
+<ol>
+<li>酒精和红酒质量相关系数为 0.476，为中等相关，酒精度数越高，质量越高</li>
+<li>从挥发性酸度和质量的散点分布图相关系数 -0.39 可知，挥发性酸度和质量有中等相关性，挥发性酸度越低，质量越高。</li>
+<li>柠檬酸度和质量相关系数为 0.226，有弱相关性，柠檬酸度越高，质量越高。</li>
+<li>二氧化硫总量和质量相关系数为 -0.185，有弱相关，二氧化硫总量越低，质量越高</li>
+<li>密度和质量相关系数为 -0.175，有弱相关性，密度越低，质量越高</li>
+<li>氯化物和质量的相关系数为 -0.129，有弱相关性，氯化物含量越低，质量越高</li>
+<li>固定酸和质量相关系数为 0.124，有弱相关性，固定酸度越高，质量越高</li>
+</ol>
+
+<h3 id="toc_41">你发现最强的关系是什么？</h3>
+
+<p>我发现固定酸和 pH 相关性最强，相关系数为 0.68，即固定酸含量越高，pH 值越低</p>
+
+<h3 id="toc_42">问题</h3>
+
+<p>定义 结合二氧化硫 combined.sulfur.dioxide = total.sulfur.dioxide - free.sulfur.dioxide</p>
+
+<p>为何 combined.sulfur.dioxide 和 quality 的相关系数无法计算？提示 “x”和“y”长度必需相同？</p>
+
+<h1 id="toc_43">多变量绘图选择</h1>
+
+<h2 id="toc_44">挥发性酸度、柠檬酸度、固定酸和质量的关系</h2>
+
+<p><img src="figure/Multivariate_Plots01-1.png" alt="plot of chunk Multivariate_Plots01"></p>
+
+<p>从上图密集点分布可知，质量越高的红酒，可挥发酸度越低，柠檬酸度越高。</p>
+
+<h3 id="toc_45">酒精度、密度和质量的关系</h3>
+
+<p><img src="figure/Multivariate_Plots02-1.png" alt="plot of chunk Multivariate_Plots02"></p>
+
+<p><img src="figure/Multivariate_Plots03-1.png" alt="plot of chunk Multivariate_Plots03"></p>
+
+<p>由上图可知，质量越高的红酒，酒精含量越高；酒精含量越高，密度越低</p>
+
+<ul>
+<li>出现‘Continuous value supplied to discrete scale’提示，添加 color = factor()，参考<a href="https://stackoverflow.com/questions/31297196/continuous-value-supplied-to-discrete-scale">r - continuous value supplied to discrete scale - Stack Overflow</a></li>
+</ul>
+
+<h2 id="toc_46">固定酸、柠檬酸、pH 值和质量关系</h2>
+
+<p><img src="figure/Multivariate_Plots04-1.png" alt="plot of chunk Multivariate_Plots04">
+<img src="figure/Multivariate_Plots05-1.png" alt="plot of chunk Multivariate_Plots05"></p>
+
+<p>固定酸和柠檬酸呈正相关，柠檬酸度越高，固定酸度越高，红酒的质量越高，柠檬酸度越高。</p>
+
+<h2 id="toc_47">构建线性模型</h2>
+
+<p>构建线性模型，基于与质量相关性强的变量，对红酒品质进行预测</p>
+
+<div><pre><code class="language-none">## 
+## Calls:
+## m1: lm(formula = I(alcohol) ~ I(volatile.acidity), data = pf)
+## m2: lm(formula = I(alcohol) ~ I(volatile.acidity) + citric.acid, 
+##     data = pf)
+## m3: lm(formula = I(alcohol) ~ I(volatile.acidity) + citric.acid + 
+##     total.sulfur.dioxide, data = pf)
+## m4: lm(formula = I(alcohol) ~ I(volatile.acidity) + citric.acid + 
+##     total.sulfur.dioxide + fixed.acidity, data = pf)
+## m5: lm(formula = I(alcohol) ~ I(volatile.acidity) + citric.acid + 
+##     total.sulfur.dioxide + fixed.acidity + chlorides, data = pf)
+## 
+## =========================================================================================
+##                             m1           m2           m3           m4           m5       
+## -----------------------------------------------------------------------------------------
+##   (Intercept)             11.058***    11.067***    11.241***    12.243***    12.532***  
+##                           (0.081)      (0.125)      (0.124)      (0.170)      (0.167)    
+##   I(volatile.acidity)     -1.204***    -1.213***    -1.054***    -0.743***    -0.339*    
+##                           (0.146)      (0.175)      (0.173)      (0.173)      (0.172)    
+##   citric.acid                          -0.015        0.103        1.298***     1.905***  
+##                                        (0.161)      (0.159)      (0.210)      (0.211)    
+##   total.sulfur.dioxide                              -0.006***    -0.008***    -0.008***  
+##                                                     (0.001)      (0.001)      (0.001)    
+##   fixed.acidity                                                  -0.171***    -0.192***  
+##                                                                  (0.020)      (0.020)    
+##   chlorides                                                                   -5.614***  
+##                                                                               (0.542)    
+## -----------------------------------------------------------------------------------------
+##   R-squared                0.041        0.041        0.078        0.117        0.173     
+##   N                     1599         1599         1599         1599         1599         
+## =========================================================================================
+##   Significance: *** = p &lt; 0.001; ** = p &lt; 0.01; * = p &lt; 0.05</code></pre></div>
+
+<p>在递归中，依次添加柠檬酸度、二氧化硫总量、固定酸度、氯化物含量等变量。构建出的线性模型为</p>
+
+<p>quality = 12.532 - 0.339<em>volatile.acidity + 1.905</em>citric.acid - 0.008<em>total.sulfur.dioxide - 0.192</em>fixed.acidity - 5.614*chlorides</p>
+
+<h1 id="toc_48">多变量分析</h1>
+
+<h3 id="toc_49">探讨你在这部分探究中观察到的一些关系。通过观察感兴趣的特性，是否存在相互促进的特性？</h3>
+
+<ol>
+<li>质量越高的红酒，可挥发酸度越低，柠檬酸度越高。</li>
+<li>质量越高的红酒，酒精含量越高；酒精含量越高，密度越低</li>
+<li>固定酸和柠檬酸呈正相关，柠檬酸度越高，固定酸度越高，红酒的质量越高，柠檬酸度越高。</li>
+</ol>
+
+<h3 id="toc_50">这些特性之间是否存在有趣或惊人的联系呢？</h3>
+
+<p>挥发性酸、柠檬酸、酒精含量与红酒品质关系最为密切。由项目背景可知，挥发性酸升高，会产生令人不快的醋味，柠檬酸升高，会提高红酒的新鲜感；另外，从常识可知，红酒酿造时间长，酒精含量越高，也可能会让红酒品质升高。总而言之，此次数据分析结果与背景常识较为相符。</p>
+
+<h3 id="toc_51">选项：你是否创建过数据集的任何模型？讨论你模型的优缺点。</h3>
+
+<p>创建了线性模型，quality = 12.532 - 0.339<em>volatile.acidity + 1.905</em>citric.acid - 0.008<em>total.sulfur.dioxide - 0.192</em>fixed.acidity - 5.614*chlorides</p>
+
+<p>优点：综合前面分析，将与质量相关性较强的变量考虑在模型中了。
+缺点：只考虑了线性关系，模型可能不准确。</p>
+
+<hr>
+
+<h1 id="toc_52">定稿图与总结</h1>
+
+<h3 id="toc_53">绘图一</h3>
+
+<div><pre><code class="language-none">## Warning: Ignoring unknown parameters: method</code></pre></div>
+
+<p><img src="figure/Plot_One-1.png" alt="plot of chunk Plot_One"></p>
+
+<h3 id="toc_54">描述一</h3>
+
+<ol>
+<li>此图为质量与柠檬酸之间的关系，柠檬酸酸度越高，质量越高。</li>
+<li>此数据集中质量多为 5 和 6。</li>
+</ol>
+
+<h3 id="toc_55">绘图二</h3>
+
+<div><pre><code class="language-none">## Warning: Ignoring unknown parameters: method</code></pre></div>
+
+<p><img src="figure/Plot_Two-1.png" alt="plot of chunk Plot_Two"></p>
+
+<h3 id="toc_56">描述二</h3>
+
+<ol>
+<li>此图为质量与挥发性酸之间的关系，挥发性酸酸度越低，质量越高。</li>
+<li>此数据集中质量多为 5 和 6。</li>
+</ol>
+
+<h3 id="toc_57">绘图三</h3>
+
+<p><img src="figure/Plot_Three-1.png" alt="plot of chunk Plot_Three"></p>
+
+<h3 id="toc_58">描述三</h3>
+
+<ol>
+<li>此图为酒精、密度和质量的关系，酒精含量越高，密度越低；</li>
+<li>酒精含量越高，质量越高。</li>
+</ol>
+
+<hr>
+
+<h1 id="toc_59">反思</h1>
+
+<p>依据常识或经验对红酒质量影响因素的猜测，很可能是不准确的，需要用数据验证得出结论。数据量越大，得出的结论越可靠。</p>
+
+<h1 id="toc_60">参考资料</h1>
+
+<ul>
+<li><a href="http://road2ai.info/2017/12/14/Uda-DataAnalysis-pj02/">Uda-DataAnalysis-pj02--红葡萄酒数据质量分析报告 - Uta&#39;s Blog</a></li>
+<li><a href="http://www.sthda.com/english/wiki/ggplot2-histogram-plot-quick-start-guide-r-software-and-data-visualization">ggplot2 histogram plot : Quick start guide - R software and data visualization - Easy Guides - Wiki - STHDA</a></li>
+<li><a href="https://stackoverflow.com/questions/31297196/continuous-value-supplied-to-discrete-scale">r - continuous value supplied to discrete scale - Stack Overflow</a></li>
+<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-chinese.pdf">transations-chinese.key</a></li>
+<li><a href="https://chf2012.github.io/2017/09/01/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/R/R_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/R_%E6%96%87%E6%A1%A3%E8%BE%93%E5%87%BA_rmarkdown/">R<em>文档输出</em>rmarkdown | Jimmy那些事儿</a></li>
+</ul>
+
+
+
+
+</body>
+
+</html>

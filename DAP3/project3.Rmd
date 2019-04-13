@@ -62,6 +62,7 @@ summary(pf)
 qplot(x = fixed.acidity, data = pf, binwidth = 0.1) +
   scale_x_continuous(limits = c(4,14), breaks = seq(4,14,0.5))
 ```
+
 note: 固定酸度多集中在 7-8，单峰，最高值出现在7-7.5 之间
 
 ## 挥发性酸度分布
@@ -70,6 +71,7 @@ note: 固定酸度多集中在 7-8，单峰，最高值出现在7-7.5 之间
 qplot(x = volatile.acidity, data = pf, binwidth = 0.01) +
   scale_x_continuous(limits = c(0.1,1),breaks = seq(0.1,1,0.1))
 ```
+
 note: 挥发性酸度集中在 0.4-0.6，近似正态分布
 
 ## 柠檬酸分布
@@ -78,6 +80,7 @@ note: 挥发性酸度集中在 0.4-0.6，近似正态分布
 qplot(x = citric.acid, data = pf, binwidth = 0.01) +
   scale_x_continuous(limits = c(0,0.8),breaks = seq(0,0.8,0.1))
 ```
+
 note: 柠檬酸度多集中在 0-0.7 之间，无明显分布规律
 
 ## 残糖的分布规律
@@ -86,6 +89,7 @@ note: 柠檬酸度多集中在 0-0.7 之间，无明显分布规律
 qplot(x = residual.sugar, data = pf, binwidth = 0.1) +
   scale_x_continuous(limits = c(1,7),breaks = seq(1,7,0.5))
 ```
+
 note：残糖含量有明显长尾，残糖数据集中分布在 1.5-3 之间，单峰，数量最多出现在残糖含量为 2 处
 
 ## 氯化物含量分布
@@ -103,6 +107,7 @@ note：氯化物含量有明显长尾，氯化物含量多集中在 0.06-0.1 之
 qplot(x = free.sulfur.dioxide, data = pf, binwidth = 1)+
   scale_x_continuous(limits = c(0,45),breaks = seq(0,45,2))
 ```
+
 note：游离二氧化硫大于 40 为少数，数据多分布在 3-18 之间，峰值出现在游离二氧化硫浓度为 6 处
 
 ## 总二氧化硫浓度分布
@@ -135,6 +140,7 @@ note：结合二氧化硫含量有明显长尾，大多分布在 125 以下，�
 qplot(x = density, data = pf, binwidth = 0.0001)+
   scale_x_continuous(limits = c(0.9901,1.0037),breaks = seq(0.9901,1.0037,0.002))
 ```
+
 note: 密度多集中在0.994-0.999 之间，单峰，近似正态分布
 
 ## pH 分布
@@ -143,6 +149,7 @@ note: 密度多集中在0.994-0.999 之间，单峰，近似正态分布
 qplot(x = pH, data = pf, binwidth = 0.01)+
   scale_x_continuous(limits = c(2.740,4.010),breaks = seq(2.740,4.010,0.1))
 ```
+
 note: pH 值多集中在 3-3.5 之间，单峰，近似正太分布
 
 ```{r echo=FALSE, Univariate_Plots12}
@@ -170,6 +177,7 @@ note: 硫酸盐含量分布明显长尾，极少高于 0.93。单峰，近似正
 qplot(x = alcohol, data = pf, binwidth = 0.1)+
   scale_x_continuous(limits = c(8.4,14.9),breaks = seq(8.4,14.9,0.4))
 ```
+
 note: 酒精含量最低为 8.4，最高 14.9。大多分布在 9.2-11 之间，数量最多的出现在酒精含量为 9.5 处
 
 ## 质量的分布
@@ -178,6 +186,7 @@ note: 酒精含量最低为 8.4，最高 14.9。大多分布在 9.2-11 之间，
 qplot(x = quality, data = pf, binwidth = 1)+
   scale_x_continuous(limits = c(2,9),breaks = seq(2,9,1))
 ```
+
 note: 质量多集中在 5-6。
 
 
@@ -250,6 +259,7 @@ ggplot(aes(x = fixed.acidity, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots02}
 cor.test(pf$fixed.acidity,pf$quality, method = 'pearson')
 ```
+
 note：固定酸和质量相关系数为 0.124，有一定相关性，固定酸度越高，质量越高
 
 
@@ -278,6 +288,7 @@ ggplot(aes(x = citric.acid, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots06}
 cor.test(pf$citric.acid,pf$quality, method = 'pearson')
 ```
+
 note:柠檬酸度和质量相关系数为 0.226，有相关性，柠檬酸度越高，质量越高。
 
 ## 残糖和红葡萄酒质量关系
@@ -289,6 +300,7 @@ ggplot(aes(x = residual.sugar, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots08}
 cor.test(pf$residual.sugar, pf$quality, method = 'pearson')
 ```
+
 note：残糖对红酒质量相关系数为 0.0137，影响不明显
 
 ## 氯化物和质量关系
@@ -302,6 +314,7 @@ ggplot(aes(x = chlorides, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots10}
 cor.test(pf$chlorides, pf$quality, method = 'pearson')
 ```
+
 note: 氯化物和质量的相关系数为 -0.129，有一定相关性，氯化物含量越低，质量越高
 
 ## 酒精和红酒质量关系
@@ -326,6 +339,7 @@ ggplot(aes(x = density, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots14}
 cor.test(pf$density, pf$quality, method = 'pearson')
 ```
+
 note：密度和质量相关系数为 -0.175，有相关性，密度越低，质量越高
 
 ## 酒精含量和密度关系
@@ -353,6 +367,7 @@ ggplot(aes(x = pH, y = quality), data = pf) +
 ```{r echo=FALSE, Bivariate_Plots18}
 cor.test(pf$pH, pf$quality, method = 'pearson')
 ```
+
 note：pH 和质量相关系数为 -0.058，相关性不强
 
 ## pH 和不同酸、盐、糖的关系
@@ -388,6 +403,7 @@ plot6 <- ggplot(aes(x = sulphates, y = pH), data = pf) +
 grid.arrange(plot1, plot2, plot3, plot4, plot5, plot6, ncol = 3)
 
 ```
+
 note: 从六个散点图来看，pH 值与固定酸和柠檬酸的关系更明显，固定酸和柠檬酸含量越高，pH 值越低
 
 ### pH与固定酸、柠檬酸的相关性
@@ -398,6 +414,7 @@ cor.test(pf$fixed.acidity, pf$pH, method = 'pearson')
 ```{r echo=FALSE, Bivariate_Plots21}
 cor.test(pf$citric.acid, pf$pH, method = 'pearson')
 ```
+
 note：固定酸和pH相关系数为 -0.68，柠檬酸和 pH 相关系数为 -0.54，均为强相关，即这两种酸度越高，pH 越低
 
 ## 游离二氧化硫、结合二氧化硫、二氧化硫总量和质量关系

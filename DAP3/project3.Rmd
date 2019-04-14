@@ -152,12 +152,6 @@ qplot(x = pH, data = pf, binwidth = 0.01)+
 
 note: pH 值多集中在 3-3.5 之间，单峰，近似正太分布
 
-```{r echo=FALSE, Univariate_Plots12}
-qplot(x = pH, data = pf, binwidth = 0.01)+
-  scale_x_continuous(limits = c(2.740,4.010),breaks = seq(2.740,4.010,0.1)) +
-  facet_wrap(~quality, ncol = 3)
-```
-
 ## 硫酸盐含量分布
 
 ```{r echo=FALSE, Univariate_Plots13}
@@ -183,8 +177,10 @@ note: 酒精含量最低为 8.4，最高 14.9。大多分布在 9.2-11 之间，
 ## 质量的分布
 
 ```{r echo=FALSE, Univariate_Plots16}
-qplot(x = quality, data = pf, binwidth = 1)+
-  scale_x_continuous(limits = c(2,9),breaks = seq(2,9,1))
+qplot(x = quality, data = pf, binwidth = 1) +
+  geom_bar() +
+  labs(title = 'Wine Quality Distribution') +
+  scale_x_continuous(breaks = seq(3,8,1))
 ```
 
 note: 质量多集中在 5-6。
@@ -252,8 +248,9 @@ note: 质量多集中在 5-6。
 ## 固定酸和质量关系
 
 ```{r echo=FALSE, Bivariate_Plots01}
-ggplot(aes(x = fixed.acidity, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = fixed.acidity), data = pf) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
 
 ```{r echo=FALSE, Bivariate_Plots02}
@@ -268,9 +265,10 @@ note：固定酸和质量相关系数为 0.124，有一定相关性，固定酸�
 挥发性酸度：葡萄酒中醋酸的含量过高会导致令人不快的醋味
 
 ```{r echo=FALSE, Bivariate_Plots03}
-ggplot(aes(x = volatile.acidity, y = quality), data = pf) +
-  geom_point(alpha = 0.1) +
-  scale_x_continuous(breaks = seq(0, 1.6, 0.1))
+ggplot(aes(x = quality, y = volatile.acidity), data = pf) +
+  scale_x_continuous(breaks = seq(0, 1.6, 0.1)) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
 ```{r echo=FALSE, Bivariate_Plots04}
 cor.test(pf$volatile.acidity,pf$quality, method = 'pearson')
@@ -278,11 +276,22 @@ cor.test(pf$volatile.acidity,pf$quality, method = 'pearson')
 
 note: 从挥发性酸度和质量的散点分布图相关系数 -0.39 可知，挥发性酸度和质量有相关性，挥发性酸度越低，质量越高。
 
+```{r echo=FALSE, Bivariate_Plots04-1}
+ggplot(aes(x = quality, y = volatile.acidity), data = pf) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5) +
+  geom_line(stat = 'summary', fun.y = mean) +
+  ggtitle('volatile.acidity VS quality')
+```
+
+note：此图为挥发性酸和质量关系，挥发性酸度越低，质量越高。
+
 ## 柠檬酸度和质量关系
 
 ```{r echo=FALSE, Bivariate_Plots05}
-ggplot(aes(x = citric.acid, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = citric.acid), data = pf) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
 
 ```{r echo=FALSE, Bivariate_Plots06}
@@ -291,11 +300,22 @@ cor.test(pf$citric.acid,pf$quality, method = 'pearson')
 
 note:柠檬酸度和质量相关系数为 0.226，有相关性，柠檬酸度越高，质量越高。
 
+```{r echo=FALSE, Bivariate_Plots06-1}
+ggplot(aes(x = quality, y = citric.acid), data = pf) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5) +
+  geom_line(stat = 'summary', fun.y = mean) +
+  ggtitle('citric.acid VS quality')
+```
+
+note：此图为柠檬酸和质量关系，柠檬酸度越高，红酒质量越高。
+
 ## 残糖和红葡萄酒质量关系
 
 ```{r echo=FALSE, Bivariate_Plots07}
-ggplot(aes(x = residual.sugar, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = residual.sugar), data = pf) +
+  geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
 ```{r echo=FALSE, Bivariate_Plots08}
 cor.test(pf$residual.sugar, pf$quality, method = 'pearson')
@@ -306,9 +326,10 @@ note：残糖对红酒质量相关系数为 0.0137，影响不明显
 ## 氯化物和质量关系
 
 ```{r echo=FALSE, Bivariate_Plots09}
-ggplot(aes(x = chlorides, y = quality), data = pf) +
-  geom_point(alpha = 0.1) +
-  scale_x_continuous(limits = c(0, 0.2))
+ggplot(aes(x = quality, y = chlorides), data = pf) +
+  geom_jitter(alpha = 0.1, color = 'blue', size = 0.4) +
+  geom_boxplot(aes(group = quality), alpha = 0.5) +
+  scale_y_continuous(limits = c(0, 0.2))
 ```
 
 ```{r echo=FALSE, Bivariate_Plots10}
@@ -320,8 +341,9 @@ note: 氯化物和质量的相关系数为 -0.129，有一定相关性，氯化�
 ## 酒精和红酒质量关系
 
 ```{r echo=FALSE, Bivariate_Plots11}
-ggplot(aes(x = alcohol, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = alcohol), data = pf) +
+  geom_jitter(alpha = 0.1, color = 'blue', size = 0.4) +
+  geom_boxplot(aes(group = quality), alpha = 0.5) 
 ```
 
 ```{r echo=FALSE, Bivariate_Plots12}
@@ -333,8 +355,9 @@ note：酒精和红酒质量相关系数为 0.476，为强相关，酒精度数�
 ## 密度和质量关系
 
 ```{r echo=FALSE, Bivariate_Plots13}
-ggplot(aes(x = density, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = density), data = pf) +
+  geom_jitter(alpha = 0.1, color = 'blue', size = 0.4) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
 ```{r echo=FALSE, Bivariate_Plots14}
 cor.test(pf$density, pf$quality, method = 'pearson')
@@ -361,9 +384,16 @@ note：酒精和密度相关系数为 -0.49，为强相关，酒精浓度越低�
 ## pH 和质量的关系
 
 ```{r echo=FALSE, Bivariate_Plots17}
-ggplot(aes(x = pH, y = quality), data = pf) +
-  geom_point(alpha = 0.1)
+ggplot(aes(x = quality, y = pH), data = pf) +
+  geom_jitter(alpha = 0.1, color = 'blue', size = 0.4) +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 ```
+```{r echo=FALSE, Bivariate_Plots17-1}
+qplot(x = pH, data = pf, binwidth = 0.01)+
+  scale_x_continuous(limits = c(2.740,4.010),breaks = seq(2.740,4.010,0.2)) +
+  facet_wrap(~quality, ncol = 3)
+```
+
 ```{r echo=FALSE, Bivariate_Plots18}
 cor.test(pf$pH, pf$quality, method = 'pearson')
 ```
@@ -376,27 +406,27 @@ note：pH 和质量相关系数为 -0.058，相关性不强
 library(gridExtra)
 
 plot1 <- ggplot(aes(x = fixed.acidity, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('fixed.acidity') +
   stat_smooth(method = 'lm') 
 plot2 <- ggplot(aes(x = volatile.acidity, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('volatile.acidity') +
   stat_smooth(method = 'lm')
 plot3 <- ggplot(aes(x = citric.acid, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('citric.acid') +
   stat_smooth(method = 'lm')
 plot4 <- ggplot(aes(x = residual.sugar, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('residual.sugar') +
   stat_smooth(method = 'lm')
 plot5 <- ggplot(aes(x = chlorides, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('chlorides') +
   stat_smooth(method = 'lm')
 plot6 <- ggplot(aes(x = sulphates, y = pH), data = pf) +
-  geom_point(alpha = 0.1) + 
+  geom_point(alpha = 0.1, size = 0.2) + 
   ggtitle('sulphates') +
   stat_smooth(method = 'lm')
 
@@ -420,15 +450,18 @@ note：固定酸和pH相关系数为 -0.68，柠檬酸和 pH 相关系数为 -0.
 ## 游离二氧化硫、结合二氧化硫、二氧化硫总量和质量关系
 
 ```{r echo=FALSE, Bivariate_Plots22}
-plot1 <- ggplot(aes(x = free.sulfur.dioxide, y = quality), data = pf) +
-  geom_point(alpha = 0.1) + 
-  ggtitle('free.sulfur.dioxide')
-plot2 <- ggplot(aes(x = combined.sulfur.dioxide, y = quality), data = pf) +
-  geom_point(alpha = 0.1) + 
-  ggtitle('combined.sulfur.dioxide')
-plot3 <- ggplot(aes(x = total.sulfur.dioxide, y = quality), data = pf) +
-  geom_point(alpha = 0.1) + 
-  ggtitle('total.sulfur.dioxide')
+plot1 <- ggplot(aes(x = quality, y = free.sulfur.dioxide), data = pf) +
+  geom_jitter(alpha = 0.1, size = 0.1) + 
+  ggtitle('free.sulfur.dioxide') +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
+plot2 <- ggplot(aes(x = quality, y = combined.sulfur.dioxide), data = pf) +
+  geom_jitter(alpha = 0.1, size = 0.1) + 
+  ggtitle('combined.sulfur.dioxide') +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
+plot3 <- ggplot(aes(x = quality, y = total.sulfur.dioxide), data = pf) +
+  geom_jitter(alpha = 0.1, size = 0.1) + 
+  ggtitle('total.sulfur.dioxide') +
+  geom_boxplot(aes(group = quality), alpha = 0.5)
 
 grid.arrange(plot1, plot2, plot3, ncol = 3)
 
@@ -504,12 +537,12 @@ note：游离二氧化硫和质量无明显关系，二氧化硫总量和质量�
 
 ```
 
-## 挥发性酸度、柠檬酸度、固定酸和质量的关系
+## 挥发性酸度、柠檬酸度和质量的关系
 
 ```{r echo=FALSE, Multivariate_Plots01}
 library(reshape2)
 ggplot(aes(x = volatile.acidity, y = citric.acid), data = pf) +
-  geom_point(aes(color = fixed.acidity), alpha = 0.1, size = 0.5) +
+  geom_point(aes(color = quality), alpha = 0.5, size = 0.2) +
   scale_x_continuous(breaks = seq(0, 1.6, 0.1)) +
   facet_wrap(~quality, ncol = 2)
 ```
@@ -520,7 +553,7 @@ ggplot(aes(x = volatile.acidity, y = citric.acid), data = pf) +
 
 ```{r echo=FALSE, Multivariate_Plots02}
 ggplot(aes(x = alcohol, y = density), data = pf) +
-  geom_point(alpha = 0.1, size = 0.5) +
+  geom_point(aes(color = quality), alpha = 0.3, size = 0.2) +
   facet_wrap(~quality, ncol = 2) 
 ```
 
@@ -531,29 +564,31 @@ library(RColorBrewer)
 ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
   geom_point(alpha = 0.3, size = 1, position = 'jitter') +
   scale_color_brewer(type = 'div',
-                     guide = guide_legend(title = 'quality', reverse = T,override.aes = list(alpha = 1, size = 2))) +
-  geom_smooth(method = 'lm', se = FALSE, size = 0.5)
+                     guide = guide_legend(title = 'quality', 
+                                          reverse = T,
+                                          override.aes = list(alpha = 1, size = 2))) +
+  geom_smooth(method = 'lm', se = FALSE, size = 0.5) +
+  ggtitle('alcohol-density VS quality')
 ```
 
 由上图可知，质量越高的红酒，酒精含量越高；酒精含量越高，密度越低
 
 - 出现‘Continuous value supplied to discrete scale’提示，添加 color = factor()，参考[r - continuous value supplied to discrete scale - Stack Overflow](https://stackoverflow.com/questions/31297196/continuous-value-supplied-to-discrete-scale)
 
-## 固定酸、柠檬酸、pH 值和质量关系
+## 固定酸、柠檬酸和质量关系
 
 ```{r echo=FALSE, Multivariate_Plots04}
 ggplot(aes(x = citric.acid, y = log10(fixed.acidity)), data = pf) +
-  geom_point(aes(color = pH), alpha = 0.1, size = 0.5) +
+  geom_point(aes(color = quality), alpha = 0.3, size = 0.2) +
   facet_wrap(~quality, ncol = 2)
 ```
 ```{r echo=FALSE, Multivariate_Plots05}
 ggplot(aes(x = citric.acid, y = fixed.acidity), data = pf) +
-  geom_point(aes(color = pH), alpha = 0.3, size = 0.5) +
+  geom_point(aes(color = quality), alpha = 0.3, size = 0.2) +
   facet_wrap(~quality, ncol = 2)
 ```
 
 固定酸和柠檬酸呈正相关，柠檬酸度越高，固定酸度越高，红酒的质量越高，柠檬酸度越高。
-
 
 ## 构建线性模型
 
@@ -600,8 +635,10 @@ quality = 12.532 - 0.339*volatile.acidity + 1.905*citric.acid - 0.008*total.sulf
 ggplot(aes(x = quality, y = citric.acid), data = pf) +
   geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
   geom_boxplot(aes(group = quality), alpha = 0.5) +
-  geom_line(method = 'lm', stat = 'summary', fun.y = mean) +
-  ggtitle('citric.acid VS quality')
+  geom_line(stat = 'summary', fun.y = mean) +
+  labs(x = 'quality (score between 0 and 10)',
+       y = 'citric.acid (g / dm^3)',
+       title = 'Relationship of citric.acid VS quality')
 ```
 
 ### 描述一
@@ -614,8 +651,10 @@ ggplot(aes(x = quality, y = citric.acid), data = pf) +
 ggplot(aes(x = quality, y = volatile.acidity), data = pf) +
   geom_jitter(alpha = 0.2, color = 'orange', size = 0.5) +
   geom_boxplot(aes(group = quality), alpha = 0.5) +
-  geom_line(method = 'lm', stat = 'summary', fun.y = mean) +
-  ggtitle('volatile.acidity VS quality')
+  geom_line(stat = 'summary', fun.y = mean) +
+  labs(x = 'quality (score between 0 and 10)',
+       y = 'volatile.acidity (acetic acid - g / dm^3)',
+       title = 'Relationship of volatile.acidity VS quality')
 ```
 
 ### 描述二
@@ -628,9 +667,14 @@ ggplot(aes(x = quality, y = volatile.acidity), data = pf) +
 ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
   geom_point(alpha = 0.3, size = 1, position = 'jitter') +
   scale_color_brewer(type = 'div',
-                     guide = guide_legend(title = 'quality', reverse = T,override.aes = list(alpha = 1, size = 2))) +
+                     guide = guide_legend(title = 'quality', 
+                                          reverse = T,
+                                          override.aes = list(alpha = 1, size = 2))) +
   geom_smooth(method = 'lm', se = FALSE, size = 0.5) +
-  ggtitle('alcohol-density VS quality')
+  ggtitle('alcohol-density VS quality') +
+  labs(x = 'alcohol(% by volume)',
+       y = 'density(g / cm^3)',
+       title = 'Relationship of alcohol & density VS quality')  
 ```
 
 ### 描述三
@@ -642,7 +686,23 @@ ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
 
 # 反思
 
-依据常识或经验对红酒质量影响因素的猜测，很可能是不准确的，需要用数据验证得出结论。数据量越大，得出的结论越可靠。
+## 分析过程中遇到的难点
+
+遇到其中一个难点，难以区分何时使用 histogram，何时使用 bar chart 来绘图，一般，质量属于 categorical data，应使用 bar chart，酒精含量、柠檬酸度等属于 quantitative data，应使用 histogram.
+
+## 分析过程中成功的发现部分
+
+最让我惊喜的发现是密度、质量、酒精两两之间有强相关，在多变量分析中，对这三个变量进行了更为细致的分析。发现，酒精含量越高，密度越低；酒精含量越高，质量越高。
+
+另一惊喜发现是关于红酒内的各种酸与质量、pH 的关系。与质量相关性最大的是柠檬酸和挥发性酸，分析结果与常识相符。柠檬酸会增加红酒新鲜感，与质量呈正相关，挥发性酸增多会产生令人不快的醋味，与红酒质量呈负相关。
+
+固定酸和 pH 相关性最强，相关系数为 0.68，即固定酸含量越高，pH 值越低。固定酸与 pH 之间是我发现的相关性最强的一对关系。
+
+## 未来如何进一步丰富分析内容和提高报告质量
+
+在构建线性模型时，考虑变量之间可能存在的非线性关系（比如对于左偏的数据分布，可以尝试log转换等，因为大部分常用的统计模型方法，比如线性回归，是基于数据是正态分布的假设的，应用log转换，可以进一步查看数据是否接近正态度分布），力求让构建的线性模型的可信度更高。
+
+探索更大的数据集。依据常识或经验对红酒质量影响因素的猜测，很可能是不准确的，需要用数据验证得出结论。数据量越大，得出的结论越可靠。此数据集只有 1599 条数据，未来可以考虑增加数据量，以期得到更精确的结论。
 
 # 参考资料
 
@@ -651,3 +711,4 @@ ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
 - [r - continuous value supplied to discrete scale - Stack Overflow](https://stackoverflow.com/questions/31297196/continuous-value-supplied-to-discrete-scale)
 - [transations-chinese.key](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-chinese.pdf)
 - [R_文档输出_rmarkdown | Jimmy那些事儿](https://chf2012.github.io/2017/09/01/%E8%BD%AF%E4%BB%B6%E5%BA%94%E7%94%A8_%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A8%8B/R/R_%E4%B8%93%E9%A2%98%E6%80%BB%E7%BB%93/R_%E6%96%87%E6%A1%A3%E8%BE%93%E5%87%BA_rmarkdown/)
+- [How to Read and Use Histograms in R | FlowingData](https://flowingdata.com/2014/02/27/how-to-read-histograms-and-use-them-in-r/)

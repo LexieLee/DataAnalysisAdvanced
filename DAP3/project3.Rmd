@@ -541,6 +541,11 @@ note：游离二氧化硫和质量无明显关系，二氧化硫总量和质量�
 
 ```{r echo=FALSE, Multivariate_Plots01}
 library(reshape2)
+
+# 对quality应用 factor() 函数，将其转为factor因子（或成为类别变量），方便用颜色编码。后面可直接使用 color = quality， 而不需要重复操作了。
+
+pf$quality <- factor(pf$quality)
+
 ggplot(aes(x = volatile.acidity, y = citric.acid), data = pf) +
   geom_point(aes(color = quality), alpha = 0.5, size = 0.2) +
   scale_x_continuous(breaks = seq(0, 1.6, 0.1)) +
@@ -561,7 +566,7 @@ ggplot(aes(x = alcohol, y = density), data = pf) +
 # install.packages('RColorBrewer')
 library(RColorBrewer)
 
-ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
+ggplot(aes(x = alcohol, y = density, color = quality), data = pf) +
   geom_point(alpha = 0.3, size = 1, position = 'jitter') +
   scale_color_brewer(type = 'div',
                      guide = guide_legend(title = 'quality', 
@@ -664,7 +669,7 @@ ggplot(aes(x = quality, y = volatile.acidity), data = pf) +
 
 ### 绘图三
 ```{r echo=FALSE, Plot_Three}
-ggplot(aes(x = alcohol, y = density, color = factor(quality)), data = pf) +
+ggplot(aes(x = alcohol, y = density, color = quality), data = pf) +
   geom_point(alpha = 0.3, size = 1, position = 'jitter') +
   scale_color_brewer(type = 'div',
                      guide = guide_legend(title = 'quality', 
